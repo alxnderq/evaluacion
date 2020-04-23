@@ -3,6 +3,8 @@ package com.hans.evaluacionbcp.app.servicioseguridad.service;
 import com.hans.evaluacionbcp.app.servicioseguridad.dao.ICurrencyDao;
 import com.hans.evaluacionbcp.app.servicioseguridad.model.Currency;
 import com.hans.evaluacionbcp.app.servicioseguridad.model.Rates;
+import com.hans.evaluacionbcp.app.servicioseguridad.model.request.RequestCurrency;
+import com.hans.evaluacionbcp.app.servicioseguridad.model.response.ResponseCurrency;
 import com.hans.evaluacionbcp.app.servicioseguridad.model.response.ResponseExchangeRate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,5 +63,26 @@ public class ExchangeRateService implements IExchangeRateService {
         return new BigDecimal(calculatedAmount)
                 .setScale(2, RoundingMode.HALF_UP)
                 .doubleValue();
+    }
+
+    @Override
+    public ResponseCurrency updateCurrency(RequestCurrency requestCurrency) {
+       Currency currency  = currencyDao.findByCurrencyBase(requestCurrency.getCurrency());
+
+       if (currency == null) {
+           return null;
+       }
+
+        // get currency rate destination
+        Rates currencyRateDestination = getCurrencyRateDestination(currency, requestCurrency.getCurrencyDestination());
+        if (currencyRateDestination == null) {
+            log.debug("Tipo de cambio destino no encontrado");
+            return null;
+        }
+
+
+
+
+        return null;
     }
 }

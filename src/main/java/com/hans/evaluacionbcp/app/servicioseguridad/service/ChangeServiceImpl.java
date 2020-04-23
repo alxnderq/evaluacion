@@ -8,9 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ChangeServiceImpl implements IChangeService {
@@ -20,6 +18,7 @@ public class ChangeServiceImpl implements IChangeService {
     private IChangeDao changeDao;
 
     @Override
+    @Transactional(readOnly = true)
     public ResponseChange changeCurrency(Double amount, String currencyOrigin, String currencyDestination) {
         log.info("changeCurrency Service");
         Change change = changeDao.findByDescripcion(currencyDestination);
@@ -46,4 +45,14 @@ public class ChangeServiceImpl implements IChangeService {
     }
 
 
+    @Override
+    @Transactional
+    public Change updareChangeMoney(Change change) {
+        Change changeResponse = changeDao.findByDescripcion(change.getDescripcion());
+        if (changeResponse == null) {
+            return null;
+        }
+        changeResponse.setTipoCambio(change.getTipoCambio());
+        return changeDao.save(changeResponse);
+    }
 }

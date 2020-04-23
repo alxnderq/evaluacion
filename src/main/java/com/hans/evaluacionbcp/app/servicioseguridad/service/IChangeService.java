@@ -1,5 +1,6 @@
 package com.hans.evaluacionbcp.app.servicioseguridad.service;
 
+import com.hans.evaluacionbcp.app.servicioseguridad.model.Change;
 import com.hans.evaluacionbcp.app.servicioseguridad.model.response.ResponseChange;
 
 public interface IChangeService {
@@ -7,4 +8,5 @@ public interface IChangeService {
 
     ResponseChange changeCurrency(Double amount, String currencyOrigin, String currencyDestination);
 
+    Change updareChangeMoney(Change changeMoney);
 }

@@ -9,7 +9,7 @@ public class ResponseChange implements Serializable {
     private Double amount;
     private String currencyOrigin;
     private String currencyDestination;
-    private Double amountChange;
+    private String amountChange;
     private Double changeType;
 
     @JsonProperty("monto")
@@ -37,15 +37,15 @@ public class ResponseChange implements Serializable {
     public void setCurrencyDestination(String currencyDestination) {
         this.currencyDestination = currencyDestination;
     }
-    @JsonProperty("montoConvertido")
-    public Double getAmountChange() {
+
+    public String getAmountChange() {
         return amountChange;
     }
 
-    public void setAmountChange(Double amountChange) {
+    public void setAmountChange(String amountChange) {
         this.amountChange = amountChange;
     }
-    @JsonProperty("tipoCambio")
+
     public Double getChangeType() {
         return changeType;
     }

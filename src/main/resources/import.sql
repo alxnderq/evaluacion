@@ -10,3 +10,4 @@ INSERT INTO `usuarios_roles` (usuario_id, role_id) VALUES (2, 1);
 
 INSERT INTO `moneda` (descripcion, tipo_cambio) VALUES ('USD', '3.433')
 INSERT INTO `moneda` (descripcion, tipo_cambio) VALUES ('EUR', '4.433')
+INSERT INTO `moneda` (descripcion, tipo_cambio) VALUES ('PEN', '3.433')

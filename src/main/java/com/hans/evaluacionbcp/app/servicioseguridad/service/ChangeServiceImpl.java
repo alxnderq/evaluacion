@@ -1,5 +1,6 @@
 package com.hans.evaluacionbcp.app.servicioseguridad.service;
 
+import com.hans.evaluacionbcp.app.servicioseguridad.business.CalculateFactory;
 import com.hans.evaluacionbcp.app.servicioseguridad.dao.IChangeDao;
 import com.hans.evaluacionbcp.app.servicioseguridad.model.Change;
 import com.hans.evaluacionbcp.app.servicioseguridad.model.response.ResponseChange;
@@ -37,20 +38,11 @@ public class ChangeServiceImpl implements IChangeService {
         return responseChange;
     }
 
-    private Double calculateChangeAmount(Double amount, Double currencyType, String currency) {
-        double calculate = 0.0;
-        switch (currency) {
-            case "USD":
-                calculate = amount * currencyType;
-                break;
-            case "PEN":
-                calculate = amount / currencyType;
-                break;
-        }
-        log.debug(String.format("Calculo de monto %s", calculate));
-        BigDecimal bd = new BigDecimal(calculate);
-        bd = bd.setScale(2, RoundingMode.HALF_UP);
-        return bd.doubleValue();
+    private String calculateChangeAmount(Double amount, Double currencyType, String currency) {
+        CalculateFactory calculateFactory = new CalculateFactory();
+        String cal = calculateFactory.getCalculate(currency).calculateAmount(amount, currencyType);
+        log.info(String.format("Calculo factory %s", cal));
+        return cal;
     }
 
 

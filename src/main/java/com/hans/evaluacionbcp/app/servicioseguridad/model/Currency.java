@@ -13,7 +13,7 @@ public class Currency implements Serializable {
     private Long id;
     @Column(unique = true, name = "currency_base")
     private String currencyBase;
-    @OneToMany(mappedBy = "currency")
+    @OneToMany(mappedBy = "currency", fetch = FetchType.LAZY)
     private Set<Rates> rates;
 
     public Long getId() {

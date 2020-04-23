@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class RequestCurrency implements Serializable {
     private String currency;
     private String currencyDestination;
-    private Double amount;
+    private Double exchangeRate;
 
     public String getCurrency() {
         return currency;
@@ -15,19 +15,19 @@ public class RequestCurrency implements Serializable {
         this.currency = currency;
     }
 
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
-
     public String getCurrencyDestination() {
         return currencyDestination;
     }
 
     public void setCurrencyDestination(String currencyDestination) {
         this.currencyDestination = currencyDestination;
+    }
+
+    public Double getExchangeRate() {
+        return exchangeRate;
+    }
+
+    public void setExchangeRate(Double exchangeRate) {
+        this.exchangeRate = exchangeRate;
     }
 }

@@ -2,7 +2,7 @@ package com.hans.evaluacionbcp.app.servicioseguridad.model.response;
 
 public class ResponseCurrency {
     private String currency;
-    private Double amount;
+    private Double exchangeRate;
 
     public String getCurrency() {
         return currency;
@@ -12,11 +12,11 @@ public class ResponseCurrency {
         this.currency = currency;
     }
 
-    public Double getAmount() {
-        return amount;
+    public Double getExchangeRate() {
+        return exchangeRate;
     }
 
-    public void setAmount(Double amount) {
-        this.amount = amount;
+    public void setExchangeRate(Double exchangeRate) {
+        this.exchangeRate = exchangeRate;
     }
 }

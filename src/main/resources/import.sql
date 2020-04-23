@@ -8,6 +8,18 @@ INSERT INTO `usuarios_roles` (usuario_id, role_id) VALUES (1, 1);
 INSERT INTO `usuarios_roles` (usuario_id, role_id) VALUES (2, 2);
 INSERT INTO `usuarios_roles` (usuario_id, role_id) VALUES (2, 1);
 
-INSERT INTO `moneda` (descripcion, tipo_cambio) VALUES ('USD', '3.433')
-INSERT INTO `moneda` (descripcion, tipo_cambio) VALUES ('EUR', '4.433')
-INSERT INTO `moneda` (descripcion, tipo_cambio) VALUES ('PEN', '3.433')
+INSERT INTO `moneda` (descripcion, tipo_cambio) VALUES ('USD', '3.433');
+INSERT INTO `moneda` (descripcion, tipo_cambio) VALUES ('EUR', '4.433');
+
+INSERT INTO `currency` (currency_base) VALUES('PEN');
+INSERT INTO `currency` (currency_base) VALUES('USD');
+INSERT INTO `currency` (currency_base) VALUES('EUR');
+
+INSERT INTO `rates` (rate, exchange_rate, currency_id) VALUES('USD', '0.29', 1);
+INSERT INTO `rates` (rate, exchange_rate, currency_id) VALUES('EUR', '0.27', 1);
+
+INSERT INTO `rates` (rate, exchange_rate, currency_id) VALUES('PEN', '3.41', 2);
+INSERT INTO `rates` (rate, exchange_rate, currency_id) VALUES('EUR', '0.92', 2);
+
+INSERT INTO `rates` (rate, exchange_rate, currency_id) VALUES('PEN', '3.68', 3);
+INSERT INTO `rates` (rate, exchange_rate, currency_id) VALUES('USD', '1.08', 3);
